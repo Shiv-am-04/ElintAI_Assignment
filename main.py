@@ -112,9 +112,10 @@ def process_resume_and_send_mail(resume_path):
     
     else:
         logger.error('mail not extracted !')
-    
+        
+# put your own directory path
 directory = r'C:\Users\SHIVAM GHUGE\Downloads\ElintAI Assignment\resumes'
-resume_paths = [os.path.join(directory,file_path) for file_path in os.listdir('resumes')]
+resume_paths = [os.path.join(directory,file_name) for file_name in os.listdir('resumes')]
 
 with ThreadPoolExecutor(max_workers=3) as executor:
     executor.map(process_resume_and_send_mail,resume_paths)
